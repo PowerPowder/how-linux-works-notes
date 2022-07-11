@@ -26,4 +26,11 @@ The kernel manages tasks for the following system areas:
 	- `exec(program)`: kernel loads and starts `program` and replaces the current process.
 	- `pseudodevices` are a kernel feature where processes think they are devices except they are implemented purely in software, generally within the kernel (like `/dev/random`).
 
-`User space` is the main memory allocted by the kernel for user processes and also refers to the memory for all running processes.
+`User space` is the main memory allocted by the kernel for user processes and also refers to the memory for all running processes. Example of how some components interact on a Linux system within user space:
+<p align="center">
+  <img src="images/fig-1.3.png" alt="fig 1.3"/>
+</p>
+
+A `user` can run processes and own files, as well have a username where the kernel recognises users via a `user id`. Every process has an `owner` and they run with the permissions of the owner. Users can modify or end processes they are the owner of and not other processes of other users.
+
+The `root` user (or `super user`) is an administrator of the system, they can end or modify any user's processes as well as access any file on the system.
