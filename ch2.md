@@ -13,5 +13,10 @@ Some commands depend on input (like `cat`), if none is given then the command re
 
 | Command | Description | Example |
 | --- | --- | --- |
-| echo |  | `echo howdy` | 
+| echo | Prints arguments to standout output  | `echo howdy` | 
 | cat | Outputs one or more files or another source of input | `cat /etc/passwd` |
+| ls | Lists the contents of a directory | `ls -l /` |
+| cp | Copies from *file1* to *file2* or copies files to a directory | `cp file1 file2` |
+| mv | Renames *file1* to *file2* | `mv file1 file2` |
+| touch | Creates a file, if already created, it updates the modification timestamp | `touch file` |
+| rm | Removes a file | `rm file` |
