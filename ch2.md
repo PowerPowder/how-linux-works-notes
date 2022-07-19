@@ -11,6 +11,7 @@ The `terminal` is a shell window and displays a prompt showing `name@host:path$`
 
 Some commands depend on input (like `cat`), if none is given then the command receives it's input from `standard input`. CTRL-D stops standard input which sends an EOF message to the program and terminates it.
 
+#### Basic Commands
 | Command | Description | Example |
 | --- | --- | --- |
 | echo | Prints arguments to standout output  | `echo howdy` | 
@@ -20,3 +21,17 @@ Some commands depend on input (like `cat`), if none is given then the command re
 | mv | Renames *file1* to *file2* | `mv file1 file2` |
 | touch | Creates a file, if already created, it updates the modification timestamp | `touch file` |
 | rm | Removes a file | `rm file` |
+
+#### Navigation
+| Command | Description | Example |
+| --- | --- | --- |
+| cd | Change to a specific directory, if no path is specified then go to home directory | `cd /` |
+| pwd | Prints the current working directory (where the shell is currently at) | `pwd` |
+| mkdir | Creates a new directory | `mkdir dir` |
+| rmdir | Removes an empty directory, fails if the directory is not empty | `rmdir dir` |
+
+
+Shell globbing, characters that are processed before running the command, if nothing matches then the characters are parsed as any other, these include:
+* `*` - on it's own, it matches everything in the current directory (`echo *`), otherwise it acts as 'match anything' character (`ls a*` - anything starting with 'a').
+* `?` - match only one character (`ls ch?.md`).
+* `.`
