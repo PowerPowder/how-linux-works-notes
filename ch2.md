@@ -33,7 +33,6 @@ Some commands depend on input (like `cat`), if none is given then the command re
 Shell globbing, characters that are processed before running the command, if nothing matches then the characters are parsed as any other, these include:
 * `*` - on it's own, it matches everything in the current directory (`echo *`), otherwise it acts as 'match anything' character (`ls a*` - anything starting with 'a').
 * `?` - match only one character (`ls ch?.md`).
-* `.`
 
 #### Intermediate Commands
 | Command | Description | Example |
@@ -46,3 +45,37 @@ Shell globbing, characters that are processed before running the command, if not
 | find | Locates a file in a directory, to use characters like `*`, `?`, `.`, enclose them in single quotes. An alternative is `locate` which searches a file index maintained by the system.| `find / -name passwd -print` |
 | head/tail | View a specific amount of a given file, default is 10 lines, use `-n` for a specific amount | `head -n 5 /etc/passwd` |
 | sort | Sorts the lines of a file/input in alphanumeric order, use `-n` for numbers and `-r` to reverse the order. | `cat /usr/share/dict/words \| sort -n` |
+
+#### Changing Password and Shell
+`passwd` is used to change the password for the user that it was ran on.
+
+`chsh` is used to change the shell.
+
+#### Dot Files
+Dot files/folders are files/folders that start with a dot (*.bashrc*, *.login*, *.ssh*). Some programs don't show dot files/folders like `ls`, `ls -a` shows all files/folders and dot files/folders.
+
+#### Shell and Environment Variables
+* **Shell variables** are temporary variables containing text strings, to set a shell variable do:
+```bash
+$ STUFF=blah
+```
+To use the shell variable, do `$STUFF`, an example is `echo $STUFF`, which would complete to `echo blah`. Shell variables cannot be accessed in commands you run.
+* **Environment variables** are variables that are passed onto programs that the shell runs, to set an environment variable, do:
+```bash
+$ STUFF=blah
+export STUFF
+```
+Note that many programs accept an environment variable with opens that will run automatically when the program is ran, like the `LESS` variable, it contains the `-R -Q` options.
+
+#### The Command Path
+`PATH` is an environment variable that contains a list of directories to locate a command.
+Each directory is separated with a colon (:).
+```bash
+$ echo $PATH
+/usr/local/bin:/usr/bin:/bin
+```
+When a matching command is found, it uses the first matching one.
+A directory can be added before the `PATH` to be searched first or last to be searched after the `PATH`:
+```bash
+$ PATH=dir:$PATH
+```
