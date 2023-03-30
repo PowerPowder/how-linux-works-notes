@@ -79,3 +79,64 @@ A directory can be added before the `PATH` to be searched first or last to be se
 ```bash
 $ PATH=dir:$PATH
 ```
+
+#### Standard Output
+To send the output of a command to a file:
+```bash
+$ command > file
+```
+
+To append the output:
+```bash
+$ command >> file
+```
+
+To send the output of a command to the input of the command (piping):
+```bash
+$ head /proc/cpuinfo | tr a-z A-Z
+```
+
+#### Standard Error
+Standard error is an output stream for diagnostics and debugging, to redirect do:
+```bash
+$ ls /ffffffff > f 2> e
+```
+To redirect both standard error and standard output, do:
+```bash
+$ ls /ffffffff > f 2>&1
+```
+
+#### Standard Input
+To input a file into a standard input for a command, do:
+```bash
+$ head < /proc/cpuinfo
+```
+
+#### Listing and Manipulating Processes
+To get a quick list of the running processes, do
+```bash
+$ ps
+```
+
+* PID: Process ID
+* TTY: Terminal Device
+* STAT: process status
+* TIME: CPU time used
+* COMMAND: the command itself
+
+Options include:
+* **ps x** - show all your *running* processes
+* **ps ax** - show all running processes
+* **ps u** - show more detailed information
+* **ps w** - show full command names
+
+To terminate a process, do:
+```bash
+$ kill signal pid
+```
+Some useful signals:
+* **-STOP** - stop process
+* **-CONT** - continue process
+* **-KILL** (or **-9**) - force stop process
+
+Another signal is **-TSTP** which is sent when pressing CTRL-Z, use `fg` (foreground) to bring it back or `bg` (background) to run in the background. Put **&** at the end of a command to run it in the background.
